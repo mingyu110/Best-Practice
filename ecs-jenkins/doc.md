@@ -13,7 +13,8 @@
 
 ### Architecture
 
-![image](https://github.com/mingyu110/Best-Practice/assets/48540798/c541cb8e-7ec8-436c-8fb9-cb01ac1e557e)
+
+![1](https://github.com/mingyu110/Best-Practice/assets/48540798/e551b130-4b94-4150-9d68-3de043307069)
 
 ### Prerequisites
 
