@@ -28,4 +28,10 @@ There are two AWS resources involved in building the scheduled task:
    ![image](https://github.com/mingyu110/Best-Practice/assets/48540798/c3d91aea-9c66-4b5c-a11e-950c41329fc3)
 
 #### Main Steps
-  
+- Choose or create an execution role of function
+- Create function and choose runtime
+- Write Lambda function code and Deploy
+- Create Scheduled Event in the Amazon CloudWatch Console
+  >- Create Event Source using "Schedule based on cron expression"
+  >- Add Lambda function as Target using "Add Targets"
+  >- Provide a name and description for our event rule
