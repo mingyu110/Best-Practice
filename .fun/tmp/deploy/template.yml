@@ -1,0 +1,29 @@
+ROSTemplateFormatVersion: '2015-09-01'
+Transform: 'Aliyun::Serverless-2018-04-03'
+Resources:
+  cdn:
+    Type: 'Aliyun::Serverless::Service'
+    Properties:
+      Role: 'acs:ram::1687912342926878:role/AliyunFCLogExecutionRole'
+      LogConfig:
+        Project: aliyun-fc-cn-shenzhen-3c7eb7d1-93fc-5495-9c36-4796c3567f2c
+        Logstore: function-log
+      InternetAccess: true
+    refresher:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: index.handler
+        Runtime: python3
+        Timeout: 60
+        MemorySize: 512
+        InstanceConcurrency: 1
+        EnvironmentVariables: {}
+      Events:
+        cdn-refresh-trigger:
+          Type: MNSTopic
+          Properties:
+            InvocationRole: 'acs:ram::1687912342926878:role/aliyunmnsnotificationrole'
+            SourceArn: 'acs:mns:cn-shenzhen:1687912342926878:/topics/cdn-urls-topic'
+            Qualifier: LATEST
+            NotifyContentFormat: STREAM
+            NotifyStrategy: BACKOFF_RETRY

@@ -1,0 +1,10 @@
+access_id: LTA*********RaYb7
+access_secret: YJuNYe**************
+type: push
+batch_size: 1
+#domestic or overseas
+area: domestic
+#File or Directory
+object_type: File 
+mns_topic_url: http://1564648900518939.mns.cn-shenzhen.aliyuncs.com/
+mns_topic_name: cdn-refresh-topic01
