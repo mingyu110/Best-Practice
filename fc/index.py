@@ -8,8 +8,8 @@ from aliyunsdkcdn.request.v20180510.DescribeRefreshTasksRequest import DescribeR
 from aliyunsdkcdn.request.v20180510.DescribeRefreshQuotaRequest import DescribeRefreshQuotaRequest
 
 def handler(event, context):
-  id = 'LTA*********nRkRaYb7'
-  secret = 'YJuNY*************rdeKLnl'
+  id = 'LTA*********nRkRaYb7'# 阿里云函数计算不支持IAM Role授权，请使用环境变量或者托管的密钥管理服务，这里的示范只是为了简单，不要硬编码密钥
+  secret = 'YJuNY*************rdeKLnl'# 阿里云函数计算不支持IAM Role授权，请使用环境变量或者托管的密钥管理服务，这里的示范只是为了简单，不要硬编码密钥
   client = AcsClient(id, secret, 'cn-shenzhen')
   obj = json.loads(event)
   doRefresh(obj['urls'], obj['type'], obj['objectType'], obj['area'], client)
