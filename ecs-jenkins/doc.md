@@ -24,7 +24,7 @@
 
 ### Get Started
 
-- All the demo scripts you can find it at https://github.com/mingyu110/Best-Practice/tree/master for reference
+- All the demo scripts you can find it at [link](https://github.com/mingyu110/Best-Practice/tree/ecs_jenkins)for reference
 
 #### IAM Resource
 
