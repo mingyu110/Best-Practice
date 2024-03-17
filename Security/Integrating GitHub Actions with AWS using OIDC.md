@@ -24,6 +24,7 @@ For instance, you want to eliminate the need to store log-term credentials to ac
   - Enter Provider URL: For the Provider URL, enter the GitHub OIDC IdP URL: https://token.actions.githubusercontent.com
   - Get Thumbprint: Click on "Get thumbprint" to verify the server certificate of your IdP. For more information on OIDC thumbprints, refer to the AWS documentation on[link](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc_verify-thumbprint.html)
   - Specify Audience: For the Audience, enter sts.amazonaws.com. This allows the AWS Security Token Service (AWS STS) API to be called by this IdP
+
     <img width="428" alt="截屏2024-03-17 15 59 45" src="https://github.com/mingyu110/Best-Practice/assets/48540798/0fedce82-0705-4609-b87e-9a07d34c8290">
 - Step 2: Creating an IAM Role and Scope the Trust Policy
   - Create Role: On the Create role page, "Web identity" should be already selected as the trusted entity, and the Identity provider field should be populated with your IdP. In the Audience list, select sts.amazonaws.com, and then click "Next."
@@ -31,6 +32,25 @@ For instance, you want to eliminate the need to store log-term credentials to ac
   - Set Permissions: On the Permissions page, click "Next." You can add permissions as needed.
   - Add Tags (Optional): On the Tags page, you can add tags to this new role, and then click "Next: Review."
   - Review and Create Role: On the Create role page, enter a role name, such as "GitHubAction-AssumeRoleWithAction." Optionally, add a description. Click "Create role" to finalize the creation of the role.
+
+Ensure that the trust relationship policy for the IAM role looks like this:
+ ```
+ {
+ "Version": "2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "Federated": "arn:aws:iam::123456789:oidc-provider/token.actions.githubusercontent.com"
+ },
+ "Action": "sts:AssumeRoleWithWebIdentity",
+ "Condition": {
+ "StringEquals": {
+ "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
+ }
+ }
+
+ ```
  
 By following these steps, you'll have set up an OIDC provider for GitHub and created an IAM role that can be assumed by GitHub Actions. This setup enhances the security of AWS resources by leveraging the identity federation between GitHub and AWS
 
