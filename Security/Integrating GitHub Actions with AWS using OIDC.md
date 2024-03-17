@@ -10,6 +10,8 @@ For instance, you want to eliminate the need to store log-term credentials to ac
 - AWS IAM :  AWS Identity and Access Management (IAM), you can specify who or what can access services and resources in AWS, centrally manage fine-grained permissions, and analyze access to refine permissions across AWS.
 
 #### Architecture
+![GitHub Actions with AWS using OIDC](https://github.com/mingyu110/Best-Practice/assets/48540798/c379c5cd-6889-48f7-897f-2440455ca6aa)
+
 
 #### Steps
 - Step1 : Creating an OIDC Provider for GitHub
@@ -34,4 +36,19 @@ By following these steps, you'll have set up an OIDC provider for GitHub and cre
 
 - Step 3: Create GitHub Actions Workflow
   With our IAM role ready, we proceed to our GitHub repository and seamlessly integrate the OIDC step into our GitHub Actions workflow as follows:
-  
+  ```
+  jobs:
+  deploy:
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: arn:aws:iam::123456789012:role/MyGitHubActionsRole
+          aws-region: us-east-1
+
+  ```
+- Step 4 : Deploy GitHub Code on AWS
+  Finally, we triggered the GitHub Action CI/CD pipeline, and it successfully deployed our GitHub code to AWS. This integration worked flawlessly.
