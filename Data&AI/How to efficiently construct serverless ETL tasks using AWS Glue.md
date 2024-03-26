@@ -11,3 +11,5 @@ The advantages of Gule include：
 - Pay only per use : Avoid licensing cost and infrastructure ide time
 - Powerful open source engines : No lock in, support from wide innovative ecosystem
 - All in one : Support all your users and workloads
+
+The next step involves utilizing Terraform to construct a robust data pipeline, connecting S3 with Redshift on top of the Glue core service, while also considering secure isolation designs.
