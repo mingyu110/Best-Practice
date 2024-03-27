@@ -60,7 +60,7 @@ resource "aws_iam_role" "jenkins_ecs_role" {
 
   assume_role_policy = <<EOF
 {
-    "Version": "2024-03-06",
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Sid": "",
