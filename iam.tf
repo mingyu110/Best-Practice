@@ -4,7 +4,7 @@ resource "aws_iam_policy" "jenkins_ecs_policy" {
 
   policy = <<EOF
 {
-    "Version": "2024-03-06",
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",
