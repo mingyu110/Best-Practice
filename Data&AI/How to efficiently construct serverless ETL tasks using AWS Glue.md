@@ -12,4 +12,8 @@ The advantages of Gule include：
 - Powerful open source engines : No lock in, support from wide innovative ecosystem
 - All in one : Support all your users and workloads
 
+Batch ETL is well-suited for scenarios where historical data analysis, routine reporting, or resource optimization is paramount.
+
+Streaming ETL excels in situations demanding real-time responses, immediate analysis of data, and quick decision-making.
+
 The next step involves utilizing Terraform to construct a robust data pipeline, connecting S3 with Redshift on top of the Glue core service, while also considering secure isolation designs.
