@@ -12,3 +12,6 @@ The purpose of vector retrieval is to search for identical or similar vectors ge
 ![image](https://github.com/mingyu110/Best-Practice/assets/48540798/a768241d-e16c-4f1a-a05b-b3ef45eecc40)
 
 #### Conventional techniques for vector retrieval
+- The primary objective of vector retrieval is to address the challenges posed by KNN and RNN problems
+  > - KNN（K-Nearest Neighbor）：The algorithm identifies the K nearest points to the query point.
+  > - RNN (Radius Nearest Neighbor)：Finds all points or N points within a radius of the query point.
