@@ -15,3 +15,13 @@ The purpose of vector retrieval is to search for identical or similar vectors ge
 - The primary objective of vector retrieval is to address the challenges posed by KNN and RNN problems
   > - KNN（K-Nearest Neighbor）：The algorithm identifies the K nearest points to the query point.
   > - RNN (Radius Nearest Neighbor)：Finds all points or N points within a radius of the query point.
+#### How to solve KNN and RNN problems
+- Brute Force
+
+  The Brute Force algorithm is a brute matching technique that systematically scans all vector features in order to identify the K vectors that are closest to the query point. This method guarantees 100% accuracy and is particularly suitable for scenarios with small data sizes or where absolute precision is essential.The Linear method in OpenSearch and the FLAT method in Milvus are both examples of Brute Force methods.
+
+- ANN
+
+  The task of ANN (Approximate Nearest Neighbor) search involves finding the k points in a given space, such as D-dimensional Euclidean space, that are closest to a query vector q from a point set S. In ANN search, it is generally acceptable to have some error in identifying the exact nearest k neighbors. If the set of results R is obtained and compared with the actual set of nearest neighbors N, then the recall rate in ANN search refers to ：
+
+  <img width="177" alt="截屏2024-04-23 10 47 23" src="https://github.com/mingyu110/Best-Practice/assets/48540798/4c423454-ae0e-424c-8eeb-494ae9738df6">
