@@ -27,3 +27,9 @@ The purpose of vector retrieval is to search for identical or similar vectors ge
   <img width="177" alt="截屏2024-04-23 10 47 23" src="https://github.com/mingyu110/Best-Practice/assets/48540798/4c423454-ae0e-424c-8eeb-494ae9738df6">
    
    The speed of the search is evaluated based on throughput or delay, which refers to the time required for conducting an ANN search for a specific q after a given S. Throughput, on the other hand, indicates the number of ANN searches that can be processed per unit time following a given S and is commonly measured in terms of Queries Per Second (QPS).
+
+    The commonly used algorithm for approximate nearest neighbor（ANN)search in artificial neural networks :
+  > * Tree-based structures,such as KD-Tree（K-Dimensional Tree）、Annoy（Approximate Nearest Neighbors Oh Yeah）
+  > * Quantitative based,such as PQ(Product Quantization)
+  > * Cluster-based approaches, such as IVF（Inverted File）、SCANN、SPANN
+  > * Graph-based，such as HNSW (Hierarchical Navigable Small World)
