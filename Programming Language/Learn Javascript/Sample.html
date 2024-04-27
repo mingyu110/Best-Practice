@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>前端支付示例</title>
+    <!-- 假设支付SDK提供了对应的CSS文件 -->
+    <link rel="stylesheet" href="path/to/payment-sdk.css">
+</head>
+<body>
+<main>
+    <!-- 页面其他内容 -->
+
+    <!-- 支付按钮 -->
+    <button id="payButton" class="payment-button">立即支付</button>
+
+    <!-- 假设支付SDK提供了对应的JavaScript文件 -->
+    <script src="path/to/payment-sdk.js"></script>
+
+    <!-- 以下是您编写的具体JavaScript代码，用于处理按钮点击事件并调用支付SDK -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('payButton').addEventListener('click', async () => {
+                try {
+                    const paymentData = { /* 构建支付所需的数据，如商品信息、金额等 */ };
+                    const response = await paymentSDK.initiatePayment(paymentData);
+
+                    // 处理响应
+                    if (response.status === 'success') {
+                        // 显示支付成功的消息，更新订单状态等
+                    } else {
+                        // 显示支付失败的消息，提示用户重新尝试等
+                    }
+                } catch (error) {
+                    console.error('Error initiating payment:', error);
+                    // 显示支付过程中发生错误的消息
+                }
+            });
+        });
+    </script>
+</main>
+</body>
+</html>
