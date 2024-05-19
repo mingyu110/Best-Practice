@@ -1,7 +1,8 @@
 ### How to efficiently construct serverless ETL tasks using AWS Glue
 The knowledge of these AWS services is essential for data engineers who are building their data systems on AWS. As illustrated in the subsequent diagram.
 
-![Data Engineer](https://github.com/mingyu110/Best-Practice/assets/48540798/bad54ee0-de37-40fd-af5c-a0619d2a6489)
+![Data Engineer](https://github.com/mingyu110/Best-Practice/assets/48540798/c1269ae9-7f7c-41da-ad8c-b49c266a7626)
+
 
 AWS Glue is a fully managed Extract, Transform, and Load (ETL) service that enables data registration, cleansing, enrichment, and reliable movement between various data stores.
 The components of Glue encompass data catalog, crawlers and classifiers, ETL operations, as well as ETL job operation.
