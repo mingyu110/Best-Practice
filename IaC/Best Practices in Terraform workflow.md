@@ -1,0 +1,3 @@
+- The Terraform State file (terraform.tfstate)**SHOULD NOT** be manually modified, as doing so may result in unintended issues. **ONLY** manipulate state through Terraform commands:
+  - `terraform appply`
+  - `terraform state(for advanced state management)`
