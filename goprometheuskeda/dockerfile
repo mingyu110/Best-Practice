@@ -1,0 +1,26 @@
+# 使用官方的Go基础镜像进行构建
+FROM golang:1.17 AS builder
+
+# 设置工作目录
+WORKDIR /app
+
+# 将当前目录下的所有文件复制到容器的 /app 目录下
+COPY . .
+
+# 构建可执行文件
+RUN CGO_ENABLED=0 GOOS=linux go build -o main .
+
+# 使用一个轻量级的基础镜像
+FROM alpine:latest
+
+# 设置工作目录
+WORKDIR /root/
+
+# 从构建阶段复制可执行文件到最终镜像
+COPY --from=builder /app/main .
+
+# 暴露8181端口
+EXPOSE 8181
+
+# 运行可执行文件
+CMD ["./main"]
