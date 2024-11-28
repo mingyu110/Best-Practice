@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: goprometheus-deployment
+  labels:
+    app: goprometheus
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: goprometheus
+  template:
+    metadata:
+      labels:
+        app: goprometheus
+    spec:
+      containers:
+        - name: goprometheus
+          image: mingyu110/goprometheuskeda:v2
+          resources:
+            limits:
+              cpu: 500m
+              memory: 256Mi
+            requests:
+              memory: 128Mi
+              cpu: 250m
