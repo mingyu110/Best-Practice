@@ -1,8 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"k8s.io/kubernetes/cmd/kube-scheduler/app"
 	"k8s.io/kubernetes/pkg/scheduler/framework/runtime"
+	"github.com/mingyu110/Best-Practice/custom-scheduler/pkg/plugins"
 	"os"
 )
 
