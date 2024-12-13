@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: custom-scheduler
+  namespace: kube-system
+  labels:
+    component: custom-scheduler
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: custom-scheduler
+  template:
+    metadata:
+      labels:
+        component: custom-scheduler
+    spec:
+      serviceAccount: custom-scheduler-sa
+      priorityClassName: system-cluster-critical
+      volumes:
+        - name: scheduler-config
+          configMap:
+            name: scheduler-config
+      containers:
+        - name: scheduler
+          image: <your username>/custom-scheduler:v1 #change to your username of docker registry
+          imagePullPolicy: IfNotPresent
+          args:
+            - custom-scheduler
+            - --config=/etc/kubernetes/scheduler-config.yaml
+            - --master=<APIServer Address> # change to the address of Kubernetes API Server
+            - --v=3
+          resources:
+            requests:
+              cpu: "50m"
+          volumeMounts:
+            - name: scheduler-config
+              mountPath: /etc/kubernetes
