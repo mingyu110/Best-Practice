@@ -1,8 +1,10 @@
 ## Custom-Scheduler配置部署使用参考
 
-注意：本实践的主要目的是为了说明如何开发自定义Kubernetes调度器的方法Demo
+- 注意：本实践的主要目的是为了说明如何开发自定义Kubernetes调度器的方法Demo
 没有考虑生产实践的其他方面，例如容器镜像安全最佳实践原则等，请不要直接应用
 到生产环境！！
+
+- 可以阅读本人写的技术博客[Kubernetes调度技术原理及扩展](https://mp.weixin.qq.com/s/IoP57SKvMiBLbPiltdoPhA)
 
 ### 一. Kubernetes版本 : v1.18.6
 ```
